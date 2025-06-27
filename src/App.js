@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import "./App.css";
-import { wait } from "@testing-library/user-event/dist/utils";
+import "./css/App.css";
+
 
 function App() {
   let [page, setpage] = useState(4);
