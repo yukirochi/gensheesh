@@ -45,6 +45,7 @@ function Characters() {
       console.error(err)
      }
      }
+     get()
   },[current])
 
   const searchit = (par) => {
@@ -82,7 +83,7 @@ function Characters() {
                 backgroundImage: `url('https://genshin.jmp.blue/characters/${current}/gacha-splash')`,
               }}
             >
-                <div className="w-[100%] h-[20%] font-poppins flex flex-col items-center"><p className="text-4xl mt-20">Amber</p><p>★ ★ ★ ★</p><p>gliding champion</p></div>
+                <div className="w-[100%] h-[20%] font-poppins flex flex-col items-center"><p className="text-4xl mt-20">{chardat.name}</p><p> {"★".repeat(chardat.rarity)}</p><p>{chardat.title}</p></div>
                 <div className=" w-[100%] h-[60%] flex">
                     <div className="w-[80%] h-[100%]"></div>
                     <div className="w-[20%] h-[100%] flex flex-col gap-[5px] items-center justify-center mr-5">
