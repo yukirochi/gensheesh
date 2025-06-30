@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { data } from "react-router-dom";
+
 
 function Characters() {
   let [searhcont, setsearchcont] = useState(false);
