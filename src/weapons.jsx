@@ -58,7 +58,7 @@ function Weapons() {
     setresult(filtered);
   };
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">Loading...</div>;
 
   return (
     <div className="w-screen h-screen flex justify-center items-center">

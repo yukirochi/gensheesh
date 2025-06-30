@@ -4,6 +4,7 @@ import { Link , Routes, Route, NavLink} from "react-router-dom";
 import Landing from "./Landing";
 import Characters from "./characters";
 import Weapons from "./weapons";
+import Artifacts from "./artifacts";
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
          <Route path="/" element={<Landing/>} />
          <Route path="/characters" element= {<Characters/>}/>
          <Route path="/weapons" element={<Weapons/>}/>
+         <Route path="/artifacts" element={<Artifacts/>}/>
       </Routes>
   
     </div>

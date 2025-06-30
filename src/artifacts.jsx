@@ -1,25 +1,25 @@
 import { useEffect, useState } from "react";
 
 
-function Characters() {
+function Artifacts() {
   let [searhcont, setsearchcont] = useState(false);
   let [result, setresult] = useState([]);
   let [loading, setloading] = useState(true);
   let [orig, setorig] = useState([]);
-  let [current, setcurremt] = useState("amber");
+  let [current, setcurremt] = useState("adventurer");
   let [chardat, setchardat] = useState([])
   useEffect(() => {
     const getdata = async () => {
       try {
-        let res = await fetch(`https://genshin.jmp.blue/characters`);
+        let res = await fetch(`https://genshin.jmp.blue/artifacts`);
         let data = await res.json();
         let exclude = [
-          "kachina",
-          "kinich",
-          "mualani",
-          "traveler-anemo",
-          "traveler-dendro",
-          "traveler-electro",
+          "prayers-for-destiny",
+          "prayers-for-illumination",
+          "glacier-and-snowfield",
+          "prayers-for-wisdom",
+          "prayers-to-springtime",
+          "prayers-to-the-firmament",
           "traveler-geo",
           "traveler-hydro",
         ];
@@ -38,7 +38,7 @@ function Characters() {
   useEffect(() => {
      const get = async() => {
         try{
-        let res = await fetch(`https://genshin.jmp.blue/characters/${current}`)
+        let res = await fetch(`https://genshin.jmp.blue/artifacts/${current}`)
         let data = await res.json();
         setchardat(data)
      }catch(err){
@@ -71,60 +71,39 @@ function Characters() {
           Search
         </button>
         <div
-          className="w-[100%] h-[625px] bg-cover bg-center bg-no-repeat overflow-visible relative"
-          style={{
-            backgroundImage: `url('https://genshin.jmp.blue/characters/${current}/namecard-background')`,
-          }}
+          className="w-[100%] h-[625px] bg-customblue bg-cover bg-center bg-no-repeat overflow-visible relative"
+          
         >
           <div className="w-[100%] h-[600px] relative overflow-visible">
             <div
               className=" absolute -inset-8 bg-cover bg-center bg-no-repeat z-10"
-              style={{
-                backgroundImage: `url('https://genshin.jmp.blue/characters/${current}/gacha-splash')`,
-              }}
+              
             >
-                <div className="w-[100%] h-[20%] font-poppins flex flex-col items-center"><p className="text-4xl mt-20">{chardat.name}</p><p> {"★".repeat(chardat.rarity)}</p><p>{chardat.title}</p></div>
-                <div className=" w-[100%] h-[60%] flex">
+                <div className=" w-[100%] h-[20%] font-poppins flex flex-col items-center"><p className="text-3xl mt-20 text-center">{chardat.name}</p><p> {"★".repeat(chardat.max_rarity)}</p><p>2-piece {chardat["2-piece_bonus"]}</p><p className="text-center w-[50%]">4-piece {chardat["4-piece_bonus"]}</p></div>
+                  <div className=" w-[100%] h-[60%] flex">
                     <div className="w-[80%] h-[100%]"></div>
                     <div className="w-[20%] h-[100%] flex flex-col gap-[5px] items-center justify-center mr-5">
                         <div className=" w-[80%] h-[18%] bg-center bg-no-repeat bg-contain "
-                              style={{backgroundImage: `url(https://genshin.jmp.blue/characters/${current}/constellation-1)`}}
+                              style={{backgroundImage: `url(https://genshin.jmp.blue/artifacts/${current}/circlet-of-logos)`}}
                         ></div>
                          <div className=" w-[80%] h-[18%] bg-center bg-no-repeat bg-contain "
-                              style={{backgroundImage: `url(https://genshin.jmp.blue/characters/${current}/constellation-2)`}}
+                              style={{backgroundImage: `url(https://genshin.jmp.blue/artifacts/${current}/flower-of-life)`}}
                         ></div>
                          <div className=" w-[80%] h-[18%] bg-center bg-no-repeat bg-contain "
-                              style={{backgroundImage: `url(https://genshin.jmp.blue/characters/${current}/constellation-3)`}}
+                              style={{backgroundImage: `url(https://genshin.jmp.blue/artifacts/${current}/goblet-of-eonothem)`}}
                         ></div>
                          <div className=" w-[80%] h-[18%] bg-center bg-no-repeat bg-contain "
-                              style={{backgroundImage: `url(https://genshin.jmp.blue/characters/${current}/constellation-4)`}}
+                              style={{backgroundImage: `url(https://genshin.jmp.blue/artifacts/${current}/plume-of-death)`}}
                         ></div>
                          <div className=" w-[80%] h-[18%] bg-center bg-no-repeat bg-contain "
-                              style={{backgroundImage: `url(https://genshin.jmp.blue/characters/${current}/constellation-5)`}}
+                              style={{backgroundImage: `url(https://genshin.jmp.blue/artifacts/${current}/sands-of-eon)`}}
                         ></div>
                        
 
                     </div>
                     
                 </div>
-                <div className=" w-[100%] h-[9%] flex justify-center gap-2">
-                    <div className=" w-[10%] h-[100%] bg-contain bg-center bg-no-repeat"
-                    style={{backgroundImage: `url(https://genshin.jmp.blue/characters/${current}/talent-passive-1)`}}
-                    ></div>
-                     <div className=" w-[10%] h-[125%] bg-contain bg-center bg-no-repeat"
-                    style={{backgroundImage: `url(https://genshin.jmp.blue/characters/${current}/talent-na)`}}
-                    ></div>
-                     <div className=" w-[20%] h-[150%] bg-contain bg-center bg-no-repeat"
-                    style={{backgroundImage: `url(https://genshin.jmp.blue/characters/${current}/talent-burst)`}}
-                    ></div>
-                     <div className=" w-[10%] h-[125%] bg-contain bg-center bg-no-repeat"
-                    style={{backgroundImage: `url(https://genshin.jmp.blue/characters/${current}/talent-skill)`}}
-                    ></div>
-                     <div className=" w-[10%] h-[100%] bg-contain bg-center bg-no-repeat"
-                    style={{backgroundImage: `url(https://genshin.jmp.blue/characters/${current}/talent-passive-2)`}}
-                    ></div>
-                    
-                </div>
+                
             </div>
           </div>
         </div>
@@ -152,35 +131,31 @@ function Characters() {
                 {result.map((res, index) =>
                   index === 0 ? (
                     <div
-                      className={` cursor-pointer bg-slate-600 bg-cover bg-center w-[90%] h-[40px] font-poppins text-xl flex justify-evenly items-center mt-2 hover:opacity-80`}
-                      style={{
-                        backgroundImage: `url('https://genshin.jmp.blue/characters/${res}/namecard-background')`,
-                      }}
+                      className={` cursor-pointer bg-cover bg-center w-[90%] h-[40px] font-poppins text-xl flex justify-evenly items-center mt-2 hover:opacity-80`}
+                      
                        onClick={()=> setcurremt(res) }
                     >
-                      <p className="w-[70%] flex justify-center">{res}</p>{" "}
+                      <p className="w-[70%] flex  overflow-hidden">{res}</p>{" "}
                       <div
                         className="w-[50px] h-[50px] bg-cover bg-center"
                         style={{
-                          backgroundImage: `url('https://genshin.jmp.blue/characters/${res}/icon-side')`,
+                          backgroundImage: `url('https://genshin.jmp.blue/artifacts/${res}/goblet-of-eonothem')`,
                         }}
                         onClick={()=> setcurremt(res) }
                       ></div>
                     </div>
                   ) : (
                     <div
-                      className=" cursor-pointer bg-cover bg-center bg-slate-600 w-[90%] h-[40px] font-poppins text-xl flex justify-evenly items-center hover:opacity-80"
-                      style={{
-                        backgroundImage: `url('https://genshin.jmp.blue/characters/${res}/namecard-background')`,
-                      }}
+                      className=" cursor-pointer bg-cover bg-center w-[90%] h-[40px] font-poppins text-xl flex justify-evenly items-center hover:opacity-80"
+                     
                       onClick={()=> setcurremt(res) }
 
                     >
-                      <p className="w-[70%] flex justify-center">{res}</p>{" "}
+                      <p className="w-[70%] flex  overflow-hidden">{res}</p>{" "}
                       <div
                         className="w-[40px] h-[50px] bg-contain bg-center bg-no-repeat "
                         style={{
-                          backgroundImage: `url('https://genshin.jmp.blue/characters/${res}/icon-side')`,
+                          backgroundImage: `url('https://genshin.jmp.blue/artifacts/${res}/goblet-of-eonothem')`,
                         }}
                          onClick={()=> setcurremt(res) }
                       ></div>
@@ -196,4 +171,4 @@ function Characters() {
   );
 }
 
-export default Characters;
+export default Artifacts;
