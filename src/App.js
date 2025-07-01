@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import "./css/App.css";
 import { Link , Routes, Route, NavLink} from "react-router-dom";
 import Landing from "./Landing";
 import Characters from "./characters";
@@ -23,7 +22,7 @@ function App() {
   }, []);*/
   return (
     <div className="App  w-screen h-screen overflow-hidden">
-      <header className=" w-screen h-16 flex items-center justify-end gap-5p ">
+      <header className=" w-screen h-16 flex items-center justify-end gap-5p absolute top-0 left-1/2 -translate-x-1/2 z-50">
         <NavLink to={"/characters"}  className ={({isActive}) => isActive ?  "navll" : "navl" }>Characters</NavLink>
         <NavLink to={"/weapons"} className ={({isActive}) => isActive ?  "navll" : "navl" }>Weapons</NavLink>
         <NavLink to={"/artifacts"} className ={({isActive}) => isActive ?  "navll" : "navl" }>Artifacts</NavLink>

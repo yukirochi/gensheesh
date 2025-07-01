@@ -62,28 +62,28 @@ function Characters() {
   if (loading) return <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">Loading...</div>;
 
   return (
-    <div className="w-screen h-screen flex justify-center items-center">
-      <div className="char-cont h-screen">
+    <div className="w-screen h-[100vh] flex justify-center items-center overflow-hidden">
+      <div className="char-cont h-[100vh-64px] overflow-hidden">
         <button
-          className="bg-[rgba(162,192,208,0.5)] px-7 py-1 text-1xl font-poppins mt-4 relative z-20 mb-2"
+          className="bg-black px-7 py-1 text-1xl font-poppins mt-4 relative z-20 mb-2  text-white"
           onClick={() => setsearchcont(true)}
         >
           Search
         </button>
         <div
-          className="w-[100%] h-[625px] bg-cover bg-center bg-no-repeat overflow-visible relative"
+          className="w-[100%] h-[625px] bg-cover bg-center bg-no-repeat overflow-visible relative "
           style={{
             backgroundImage: `url('https://genshin.jmp.blue/characters/${current}/namecard-background')`,
           }}
         >
           <div className="w-[100%] h-[600px] relative overflow-visible">
             <div
-              className=" absolute -inset-8 bg-cover bg-center bg-no-repeat z-10"
+              className=" absolute -inset-8 bg-cover bg-center bg-no-repeat z-10 md:bg-contain md:ml-[10%]"
               style={{
                 backgroundImage: `url('https://genshin.jmp.blue/characters/${current}/gacha-splash')`,
               }}
             >
-                <div className="w-[100%] h-[20%] font-poppins flex flex-col items-center"><p className="text-4xl mt-20">{chardat.name}</p><p> {"★".repeat(chardat.rarity)}</p><p>{chardat.title}</p></div>
+                <div className="w-[100%] h-[20%] font-poppins flex flex-col items-center md:items-start"><p className="text-4xl mt-20">{chardat.name}</p><p> {"★".repeat(chardat.rarity)}</p><p>{chardat.title}</p></div>
                 <div className=" w-[100%] h-[60%] flex">
                     <div className="w-[80%] h-[100%]"></div>
                     <div className="w-[20%] h-[100%] flex flex-col gap-[5px] items-center justify-center mr-5">
@@ -132,11 +132,11 @@ function Characters() {
 
       {searhcont && (
         <div
-          className="w-screen h-screen absolute z-30 "
+          className="w-screen h-[90vh] absolute z-30  overflow-hidden flex  items-center "
           onClick={() => setsearchcont(false)}
         >
           <div
-            className="search-cont mt-4 bg-customblue"
+            className="search-cont bg-customblue overflow-hidden "
             onClick={(e) => e.stopPropagation()}
           >
             <div className=" flex justify-center items-center h-12">
@@ -147,7 +147,7 @@ function Characters() {
                 onChange={(e) => searchit(e.target.value)}
               />
             </div>
-            <div className=" h-[600px] w-[100%] mt-[5%] flex flex-col items-center gap-3">
+            <div className=" h-[90%] w-[100%] mt-[5%] flex flex-col items-center gap-3 overflow-hidden">
               <div className="w-[100%] h-[100%] overflow-scroll flex flex-col items-center gap-3">
                 {result.map((res, index) =>
                   index === 0 ? (
@@ -156,9 +156,9 @@ function Characters() {
                       style={{
                         backgroundImage: `url('https://genshin.jmp.blue/characters/${res}/namecard-background')`,
                       }}
-                       onClick={()=> setcurremt(res) }
+                       onClick={()=> setcurremt(res)}
                     >
-                      <p className="w-[70%] flex justify-center">{res}</p>{" "}
+                      <p className="w-[70%] flex justify-center  text-white ">{res}</p>{" "}
                       <div
                         className="w-[50px] h-[50px] bg-cover bg-center"
                         style={{
@@ -176,7 +176,7 @@ function Characters() {
                       onClick={()=> setcurremt(res) }
 
                     >
-                      <p className="w-[70%] flex justify-center">{res}</p>{" "}
+                      <p className="w-[70%] flex justify-center text-white">{res}</p>{" "}
                       <div
                         className="w-[40px] h-[50px] bg-contain bg-center bg-no-repeat "
                         style={{

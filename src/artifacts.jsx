@@ -63,15 +63,15 @@ function Artifacts() {
 
   return (
     <div className="w-screen h-screen flex justify-center items-center">
-      <div className="char-cont h-screen">
+      <div className="char-cont h-[100vh-64px] ">
         <button
-          className="bg-[rgba(162,192,208,0.5)] px-7 py-1 text-1xl font-poppins mt-4 relative z-20 mb-2"
+          className="bg-[rgba(0,0,0,1)] px-7 py-1 text-1xl font-poppins mt-4 relative z-20 mb-2 text-white"
           onClick={() => setsearchcont(true)}
         >
           Search
         </button>
         <div
-          className="w-[100%] h-[625px] bg-customblue bg-cover bg-center bg-no-repeat overflow-visible relative"
+          className="w-[100%] h-[625px] border-black border-[1px] bg-cover bg-center bg-no-repeat overflow-visible relative"
           
         >
           <div className="w-[100%] h-[600px] relative overflow-visible">
@@ -111,11 +111,11 @@ function Artifacts() {
 
       {searhcont && (
         <div
-          className="w-screen h-screen absolute z-30 "
+          className="w-screen h-screen absolute z-30 flex items-center "
           onClick={() => setsearchcont(false)}
         >
           <div
-            className="search-cont mt-4 bg-customblue"
+            className="search-cont mt-4 bg-customblue md:max-h-[600px] overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
             <div className=" flex justify-center items-center h-12">
@@ -126,7 +126,7 @@ function Artifacts() {
                 onChange={(e) => searchit(e.target.value)}
               />
             </div>
-            <div className=" h-[600px] w-[100%] mt-[5%] flex flex-col items-center gap-3">
+            <div className=" h-[600px] w-[100%] mt-[5%] flex flex-col items-center gap-3 md:w-[300px]" >
               <div className="w-[100%] h-[100%] overflow-scroll flex flex-col items-center gap-3">
                 {result.map((res, index) =>
                   index === 0 ? (
@@ -135,7 +135,7 @@ function Artifacts() {
                       
                        onClick={()=> setcurremt(res) }
                     >
-                      <p className="w-[70%] flex  overflow-hidden">{res}</p>{" "}
+                      <p className="w-[70%] flex  overflow-hidden text-white">{res}</p>{" "}
                       <div
                         className="w-[50px] h-[50px] bg-cover bg-center"
                         style={{
@@ -147,11 +147,10 @@ function Artifacts() {
                   ) : (
                     <div
                       className=" cursor-pointer bg-cover bg-center w-[90%] h-[40px] font-poppins text-xl flex justify-evenly items-center hover:opacity-80"
-                     
                       onClick={()=> setcurremt(res) }
 
                     >
-                      <p className="w-[70%] flex  overflow-hidden">{res}</p>{" "}
+                      <p className="w-[70%] flex  overflow-hidden  text-white">{res}</p>{" "}
                       <div
                         className="w-[40px] h-[50px] bg-contain bg-center bg-no-repeat "
                         style={{

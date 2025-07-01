@@ -62,14 +62,14 @@ function Weapons() {
 
   return (
     <div className="w-screen h-screen flex justify-center items-center">
-      <div className="char-cont h-screen">
+      <div className="char-cont h-[100vh-64px] ">
         <button
-          className="bg-[rgba(162,192,208,0.5)] px-7 py-1 text-1xl font-poppins mt-4 relative z-20 mb-2"
+          className="bg-[rgba(0,0,0,1)] px-7 py-1 text-1xl font-poppins mt-4 relative z-20 mb-2 text-white"
           onClick={() => setsearchcont(true)}
         >
           Search
         </button>
-        <div className="w-[100%] bg-customblue h-[625px] bg-cover bg-center bg-no-repeat overflow-visible relative">
+        <div className="w-[100%] border-[1px] border-black h-[625px] bg-cover bg-center bg-no-repeat overflow-visible relative">
           <div className="w-[100%] h-[600px] relative overflow-visible">
             <div className=" absolute -inset-8 bg-cover bg-center bg-no-repeat z-10">
               <div className="w-[100%] h-[20%] font-poppins flex flex-col items-center">
@@ -80,7 +80,7 @@ function Weapons() {
 
               <div className=" w-[100%] h-[9%] flex justify-center gap-2">
                 <div
-                  className=" w-[620px] h-[630px] bg-contain bg-center bg-no-repeat"
+                  className=" w-[620px] h-[630px] bg-contain bg-center bg-no-repeat md:w-[300px]"
                   style={{
                     backgroundImage: `url(https://genshin.jmp.blue/weapons/${current}/icon)`,
                   }}
@@ -93,11 +93,11 @@ function Weapons() {
 
       {searhcont && (
         <div
-          className="w-screen h-screen absolute z-30"
+          className="w-screen h-screen absolute z-30 flex items-center"
           onClick={() => setsearchcont(false)}
         >
           <div
-            className="search-cont mt-4 bg-customblue"
+            className="search-cont mt-4 bg-customblue md:max-h-[600px] overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
             <div className=" flex justify-center items-center h-12">
@@ -109,14 +109,14 @@ function Weapons() {
               />
             </div>
             <div className=" h-[600px] w-[100%] mt-[5%] flex flex-col items-center gap-3">
-              <div className="w-[100%] h-[100%] overflow-scroll flex flex-col items-center gap-3">
+              <div className="w-[100%] h-[100%]  overflow-scroll flex flex-col items-center gap-3 ">
                 {result.map((res, index) =>
                   index === 0 ? (
                     <div
                       className={` cursor-pointer bg-cover bg-center w-[90%] h-[40px] font-poppins text-xl flex justify-evenly items-center mt-2 hover:opacity-80`}
                       onClick={() => setcurremt(res)}
-                    >
-                      <p className="w-[100%] flex overflow-hidden hover:border-b-[1px] hover:border-black">
+                    > 
+                      <p className="w-[100%] flex overflow-hidden hover:border-b-[1px] hover:border-white  text-white">
                         {res}
                       </p>{" "}
                       <div
@@ -129,10 +129,10 @@ function Weapons() {
                     </div>
                   ) : (
                     <div
-                      className=" hover:border-b-[1px] hover:border-black cursor-pointer bg-cover bg-center w-[90%] h-[40px] font-poppins text-xl flex justify-evenly items-center hover:opacity-80"
+                      className=" hover:border-b-[1px] hover:border-white cursor-pointer bg-cover bg-center w-[90%] h-[40px] font-poppins text-xl flex justify-evenly items-center hover:opacity-80"
                       onClick={() => setcurremt(res)}
                     >
-                      <p className="w-[100%] flex overflow-hidden">{res}</p>{" "}
+                      <p className="w-[100%] flex overflow-hidden text-white">{res}</p>{" "}
                       <div
                         className="w-[40px] h-[50px] bg-contain bg-center bg-no-repeat "
                         style={{

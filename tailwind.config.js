@@ -14,7 +14,7 @@ module.exports = {
         "50p": "50%",
       },
       colors: {
-        customblue: '#a2c0d0',
+        customblue: '#000000',
       },
     },
   },
