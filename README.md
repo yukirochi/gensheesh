@@ -1,6 +1,6 @@
 ![frontpage](images/b1.png)
 
-Welcom the Gensheesh an informative genshin impact website
+Welcome the Gensheesh an informative genshin impact website
 
 How to install:
 
